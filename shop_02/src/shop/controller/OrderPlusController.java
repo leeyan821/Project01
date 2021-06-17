@@ -23,6 +23,7 @@ public class OrderPlusController implements Controller {
 		ProductService service = ProductService.getInstance();
 		service.insertProd(pid, id, cnt, address);
 		service.deleteMax(pid, cnt);
+		service.cartDelete(id,pid);
 		if(apid!=null) {
 			service.insertProd(apid, id, 1, address);
 			service.deleteMax(apid, 1);
