@@ -60,4 +60,8 @@ public class ProductService {
 	public ArrayList<CustomVO> customOrder(String type, String[] flower, String plus) {
 		return dao.customOrder(type,flower,plus);
 	}
+	
+	public void cartDelete(String id, String pid) {
+		dao.cartDelete(id,pid);
+	}
 }
