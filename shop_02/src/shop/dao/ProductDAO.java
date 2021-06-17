@@ -380,4 +380,19 @@ public class ProductDAO {
 		}
 		return list;
 	}
+	public void cartDelete(String id, String pid) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = JdbcDAO.con();
+			pstmt = conn.prepareStatement(" delete from cart where pid=? and mid=?;");
+			pstmt.setString(1, pid);
+			pstmt.setString(2, id);
+			pstmt.executeUpdate();
+		}catch(SQLException e) {
+			System.out.println("cart delete error");
+		}finally {	
+			JdbcDAO.close(conn, pstmt);
+		}		
+	}
 }
